@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wa'el Al-Omari — Designer, Calligrapher, Researcher</title>
+<meta name="description" content="Wa'el Mohammed Al-Omari — graphic and digital designer, e-learning designer, and award-winning Arabic calligrapher based in Riyadh.">
+<meta name="theme-color" content="#0A1418">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A1418;
+  --ink-2:#0E1D23;
+  --surface:#132931;
+  --line:rgba(217,182,95,.20);
+  --line-soft:rgba(200,220,225,.11);
+  --teal:#13808F;
+  --gold:#D9B65F;
+  --gold-lt:#F0D9A0;
+  --paper:#F5F1E8;
+  --body:#BFCED2;
+  --muted:#8098A0;
+
+  --display:"Fraunces",Georgia,serif;
+  --sans:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif;
+  --calli:"Aref Ruqaa",serif;
+
+  --gut:clamp(1.25rem,5vw,4.5rem);
+  --measure:62ch;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--ink);color:var(--body);
+  font-family:var(--sans);font-weight:400;
+  font-size:clamp(1rem,.95rem + .22vw,1.09rem);line-height:1.72;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.06;margin:0;color:var(--paper);
+  font-variation-settings:"opsz" 96;letter-spacing:-.02em;}
+p{margin:0 0 1.15rem;max-width:var(--measure);}
+a{color:var(--gold);text-decoration:none;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;}
+img{max-width:100%;}
+
+.wrap{width:min(1200px,100% - var(--gut)*2);margin-inline:auto;position:relative;z-index:2;}
+section{padding:clamp(4rem,10vw,8rem) 0;position:relative;scroll-margin-top:78px;}
+#top{scroll-margin-top:0;}
+
+.head{display:flex;align-items:baseline;gap:1.25rem;margin-bottom:clamp(2rem,4vw,3.25rem);}
+.head h2{font-size:clamp(2rem,1.3rem + 2.6vw,3.4rem);}
+.head .rule{flex:1;height:1px;background:var(--line);align-self:center;}
+
+.nav{position:sticky;top:0;z-index:60;background:rgba(10,20,24,.72);
+  backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line-soft);}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 0;flex-wrap:wrap;}
+.mark{font-family:var(--calli);font-size:1.7rem;color:var(--gold);line-height:1;padding-block:.2rem;}
+.nav ul{display:flex;gap:clamp(.9rem,2.2vw,2rem);list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+.nav a{color:var(--body);font-size:.9rem;font-weight:500;position:relative;padding-block:.2rem;}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);
+  transition:width .32s cubic-bezier(.22,.61,.36,1);}
+.nav a:hover::after,.nav a:focus-visible::after{width:100%;}
+
+.hero{padding:clamp(3.5rem,9vw,7.5rem) 0 clamp(3rem,6vw,5rem);overflow:hidden;}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(70% 55% at 76% 34%,rgba(19,128,143,.30),transparent 68%),
+             radial-gradient(48% 44% at 12% 88%,rgba(217,182,95,.10),transparent 70%);}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2.25rem,5vw,4.5rem);align-items:center;}
+.hero h1{
+  font-size:clamp(2.6rem,1.4rem + 5.6vw,5.4rem);line-height:.98;margin-bottom:1.4rem;
+  background:linear-gradient(104deg,var(--paper) 12%,var(--gold-lt) 52%,var(--gold) 88%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .role{font-size:clamp(1.02rem,.95rem + .35vw,1.22rem);color:var(--gold);font-weight:500;
+  margin-bottom:1.35rem;max-width:30ch;line-height:1.5;}
+.hero .lede{color:var(--body);max-width:42ch;font-weight:300;font-size:1.06rem;}
+.cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2.4rem;}
+.btn{display:inline-block;padding:.85rem 1.8rem;font-size:.94rem;font-weight:600;font-family:var(--sans);
+  border:1px solid var(--gold);background:var(--gold);color:var(--ink);border-radius:999px;cursor:pointer;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;}
+.btn:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 10px 28px rgba(217,182,95,.22);}
+.btn.ghost{background:transparent;color:var(--gold);}
+.btn.ghost:hover{background:rgba(217,182,95,.1);box-shadow:none;}
+
+.calli-stage{position:relative;display:grid;place-items:center;padding:clamp(2rem,5vw,3.5rem) 1rem;
+  border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(165deg,rgba(19,128,143,.16),rgba(10,20,24,0) 62%);}
+.calli-stage::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,182,95,.26),transparent 66%);filter:blur(34px);}
+.calli{font-family:var(--calli);font-size:clamp(2.4rem,1.2rem + 6vw,4.6rem);line-height:1.5;direction:rtl;
+  position:relative;color:var(--gold-lt);text-shadow:0 0 42px rgba(217,182,95,.32);text-align:center;
+  white-space:nowrap;animation:rise 1.15s cubic-bezier(.22,.61,.36,1) both;}
+@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.97);}to{opacity:1;transform:none;}}
+.calli-cap{position:relative;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);
+  font-size:.82rem;color:var(--muted);text-align:center;max-width:30ch;line-height:1.6;}
+
+.ticker{border-block:1px solid var(--line-soft);padding:1.05rem 0;overflow:hidden;
+  background:var(--ink-2);position:relative;z-index:2;}
+.track{display:flex;gap:3rem;width:max-content;animation:slide 42s linear infinite;}
+.track span{font-family:var(--display);font-size:1.15rem;color:var(--muted);white-space:nowrap;
+  font-variation-settings:"opsz" 40;}
+.track span::after{content:"\00B7";margin-inline-start:3rem;color:var(--gold);}
+@keyframes slide{to{transform:translateX(-50%);}}
+
+.about-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:clamp(2rem,5vw,4.5rem);}
+.about p{font-weight:300;font-size:1.06rem;}
+.about p:last-child{margin-bottom:0;}
+.about strong{color:var(--paper);font-weight:500;}
+.facts{align-self:start;display:grid;gap:0;margin:0;}
+.fact{padding:1.05rem 0;border-top:1px solid var(--line-soft);}
+.fact:first-child{border-top:1px solid var(--line);}
+.fact dt{font-size:.8rem;color:var(--muted);margin-bottom:.2rem;}
+.fact dd{margin:0;font-family:var(--display);font-size:1.14rem;color:var(--paper);line-height:1.35;}
+
+.tl{position:relative;padding-inline-start:2rem;}
+.tl::before{content:"";position:absolute;inset-block:.7rem 0;inset-inline-start:0;width:1px;
+  background:linear-gradient(180deg,var(--gold),var(--line-soft) 70%,transparent);}
+.job{position:relative;padding-bottom:2.9rem;}
+.job:last-child{padding-bottom:0;}
+.job::before{content:"";position:absolute;inset-inline-start:-2rem;top:.72rem;width:9px;height:9px;
+  border-radius:50%;background:var(--gold);transform:translateX(-4px);box-shadow:0 0 0 5px rgba(217,182,95,.12);}
+.job h3{font-size:clamp(1.2rem,1.05rem + .5vw,1.5rem);margin-bottom:.3rem;}
+.job .org{color:var(--gold);font-weight:500;font-size:.97rem;}
+.job .when{color:var(--muted);font-size:.86rem;margin-bottom:.75rem;}
+.job ul{margin:.55rem 0 0;padding-inline-start:1.05rem;}
+.job li{margin-bottom:.4rem;max-width:var(--measure);font-weight:300;}
+.job li::marker{color:var(--teal);}
+.lead-note{background:linear-gradient(100deg,rgba(19,128,143,.18),rgba(19,128,143,0));
+  border-inline-start:2px solid var(--gold);padding:.95rem 1.2rem;margin:.2rem 0 .3rem;
+  font-size:.98rem;color:var(--paper);max-width:var(--measure);border-radius:0 10px 10px 0;font-weight:300;}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(1.5rem,3vw,2.5rem);}
+.sk h3{font-size:1.06rem;color:var(--gold);margin-bottom:.85rem;padding-bottom:.6rem;
+  border-bottom:1px solid var(--line);font-family:var(--sans);font-weight:600;letter-spacing:0;}
+.sk ul{list-style:none;margin:0;padding:0;}
+.sk li{font-size:.95rem;padding:.26rem 0;color:var(--body);font-weight:300;}
+
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;}
+.proj{display:flex;flex-direction:column;border:1px solid var(--line-soft);border-radius:18px;
+  padding:1.6rem 1.7rem;background:var(--ink-2);color:inherit;position:relative;overflow:hidden;
+  transition:border-color .3s ease,transform .3s ease,background .3s ease,box-shadow .3s ease;}
+a.proj:hover,a.proj:focus-visible{border-color:var(--gold);transform:translateY(-5px);
+  background:var(--surface);box-shadow:0 14px 34px rgba(0,0,0,.34);}
+.proj h3{font-size:1.3rem;margin-bottom:.3rem;transition:color .3s ease;}
+a.proj:hover h3{color:var(--gold-lt);}
+.proj .kind{color:var(--teal);font-size:.8rem;font-weight:600;margin-bottom:.7rem;}
+.proj p{font-size:.94rem;margin:0;color:var(--muted);font-weight:300;}
+.proj .view{margin-top:1.15rem;padding-top:.9rem;border-top:1px solid var(--line-soft);
+  font-size:.85rem;font-weight:600;color:var(--gold);display:inline-flex;align-items:center;gap:.5rem;
+  transition:gap .28s cubic-bezier(.22,.61,.36,1),border-color .3s ease;}
+.proj .view::after{content:"";width:16px;height:1px;background:var(--gold);
+  transition:width .28s cubic-bezier(.22,.61,.36,1);}
+a.proj:hover .view{gap:.85rem;border-color:var(--line);}
+a.proj:hover .view::after{width:26px;}
+.proj.is-static{opacity:.9;}
+.work-more{margin-top:2.25rem;}
+.work-more a{font-weight:600;border-bottom:1px solid var(--line);padding-bottom:2px;}
+.work-more a:hover{border-color:var(--gold);}
+
+.contact{background:var(--ink-2);}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);}
+.clist{list-style:none;margin:1.75rem 0 0;padding:0;}
+.clist li{padding:.75rem 0;border-bottom:1px solid var(--line-soft);font-size:.97rem;}
+.clist a{color:var(--paper);}
+.clist a:hover{color:var(--gold);}
+form{display:grid;gap:1.15rem;}
+label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.4rem;}
+input,textarea{width:100%;padding:.85rem 1rem;font:inherit;font-size:.96rem;color:var(--paper);
+  background:rgba(245,241,232,.05);border:1px solid var(--line-soft);border-radius:10px;
+  transition:border-color .2s ease,background .2s ease;}
+input::placeholder,textarea::placeholder{color:rgba(128,152,160,.7);}
+input:focus,textarea:focus{border-color:var(--gold);background:rgba(245,241,232,.08);outline:none;}
+textarea{min-height:140px;resize:vertical;}
+.status{font-size:.9rem;color:var(--gold);min-height:1.3rem;margin:0;}
+.form-note{font-size:.83rem;color:var(--muted);margin:0;}
+
+footer{padding:2rem 0;border-top:1px solid var(--line-soft);font-size:.86rem;color:var(--muted);}
+.foot{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1);}
+.rv.in{opacity:1;transform:none;}
+
+@media (max-width:900px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
+  .calli-stage{order:-1;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+  html{scroll-behavior:auto;}
+  .rv{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="mark" href="#top" aria-label="Wa'el Al-Omari, home">وائل العمري</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Wa'el Al-Omari</h1>
+      <p class="role">Graphic and digital designer, e-learning designer, and Arabic calligrapher in Riyadh.</p>
+      <p class="lede">Twenty years of shaping brands, pages, and learning — built on a foundation most designers don't have: the hand-drawn Arabic letter.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See selected work</a>
+        <a class="btn ghost" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+    <div class="calli-stage">
+      <span class="calli">وائل العمري</span>
+      <p class="calli-cap">First place, Arabic Calligraphy Award, Arab Capital of Culture.</p>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Brand identity</span><span>Arabic calligraphy</span><span>Packaging</span><span>E-learning</span>
+    <span>Motion graphics</span><span>Editorial design</span><span>Augmented reality</span>
+    <span>Brand identity</span><span>Arabic calligraphy</span><span>Packaging</span><span>E-learning</span>
+    <span>Motion graphics</span><span>Editorial design</span><span>Augmented reality</span>
+  </div>
+</div>
+
+<main>
+
+<section id="about">
+  <div class="wrap">
+    <div class="head rv"><h2>About</h2><div class="rule"></div></div>
+    <div class="about-grid">
+      <div class="about rv">
+        <p>I work across two worlds most people keep separate: the craft of visual design, and the evidence behind how people learn. That means a logotype one week and an interactive training module the next — and the conviction that both should be held to the same standard.</p>
+        <p>I started with a pen. Arabic calligraphy taught me proportion, rhythm, and patience long before I opened a design program, and it still decides how I judge a curve or a counter. It's why my identities carry a hand, and why <strong>type is never an afterthought</strong> in my work.</p>
+        <p>Most recently I spent eleven years at the Institute of Public Administration in Riyadh, where I <strong>founded the in-house design team and led it for four years</strong> while still designing daily. Alongside that, I'm completing a PhD in Creative Multimedia, researching how augmented reality changes the way people learn together.</p>
+      </div>
+      <dl class="facts rv">
+        <div class="fact"><dt>Based in</dt><dd>Riyadh, Saudi Arabia</dd></div>
+        <div class="fact"><dt>Available for</dt><dd>Design and e-learning roles</dd></div>
+        <div class="fact"><dt>Studying</dt><dd>PhD, Creative Multimedia — MMU Malaysia</dd></div>
+        <div class="fact"><dt>Published</dt><dd>Five peer-reviewed papers on AR in education</dd></div>
+        <div class="fact"><dt>Working in</dt><dd>Arabic and English</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head rv"><h2>Experience</h2><div class="rule"></div></div>
+    <div class="tl">
+
+      <article class="job rv">
+        <h3>Multimedia &amp; eLearning Specialist, Designer, Workshop Facilitator</h3>
+        <div class="org">Institute of Public Administration — Riyadh</div>
+        <div class="when">June 2015 – August 2026</div>
+        <p class="lead-note">Founded IPA's in-house graphic design team and led it for four years — built the function from nothing, ran workflows and task allocation, and kept designing hands-on throughout.</p>
+        <ul>
+          <li>Designed complete identity systems — logotypes, guidelines, and collateral — for internal and external stakeholders.</li>
+          <li>Built interactive e-learning modules and multimedia training for government employees.</li>
+          <li>Owned e-learning production end to end, from storyboard to final visual design.</li>
+          <li>Led internal workshops on design tools, digital media, and instructional technology.</li>
+        </ul>
+      </article>
+
+      <article class="job rv">
+        <h3>Senior Finalizer</h3>
+        <div class="org">M&amp;C Saatchi — Amman</div>
+        <div class="when">September 2012 – April 2013</div>
+        <ul>
+          <li>Produced press-ready print and digital artwork for high-profile campaigns.</li>
+          <li>Held brand compliance and production quality across every client deliverable.</li>
+        </ul>
+      </article>
+
+      <article class="job rv">
+        <h3>Senior Finalizer</h3>
+        <div class="org">Publicis Graphics — Amman</div>
+        <div class="when">December 2010 – August 2012</div>
+        <ul>
+          <li>Ran pre-press production workflows for regional advertising campaigns.</li>
+          <li>Mentored junior designers and coordinated print vendors against campaign deadlines.</li>
+        </ul>
+      </article>
+
+      <article class="job rv">
+        <h3>Graphic Designer</h3>
+        <div class="org">Education Experts — Riyadh</div>
+        <div class="when">February 2010 – August 2010</div>
+        <ul>
+          <li>Created educational visuals, presentations, and instructional graphics for K–12 programs.</li>
+        </ul>
+      </article>
+
+      <article class="job rv">
+        <h3>Senior Finalizer</h3>
+        <div class="org">Team Young &amp; Rubicam – Wunderman — Amman</div>
+        <div class="when">February 2007 – November 2009</div>
+        <ul>
+          <li>Delivered final artwork for integrated campaigns across print, outdoor, and digital.</li>
+          <li>Coordinated production timelines with account management and client services.</li>
+        </ul>
+      </article>
+
+      <article class="job rv">
+        <h3>Graphic Designer</h3>
+        <div class="org">Afaq Newspaper — Irbid</div>
+        <div class="when">March 2003 – March 2005</div>
+        <ul>
+          <li>Designed editorial layouts, infographics, and advertising visuals on daily deadlines.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="head rv"><h2>What I do</h2><div class="rule"></div></div>
+    <div class="skills">
+      <div class="sk rv"><h3>Design</h3><ul>
+        <li>Brand identity and logotypes</li><li>Print and editorial</li><li>Packaging</li>
+        <li>Infographics and data visuals</li><li>Typography</li></ul></div>
+      <div class="sk rv"><h3>Software</h3><ul>
+        <li>Photoshop</li><li>Illustrator</li><li>InDesign</li><li>After Effects</li>
+        <li>Premiere Pro</li><li>Figma</li></ul></div>
+      <div class="sk rv"><h3>E-learning</h3><ul>
+        <li>Instructional design</li><li>Articulate Storyline</li><li>Adobe Captivate</li>
+        <li>Storyboarding</li><li>Interactive modules</li></ul></div>
+      <div class="sk rv"><h3>Motion and video</h3><ul>
+        <li>Motion graphics</li><li>Animated branding</li><li>Editing and post-production</li>
+        <li>Event photography</li></ul></div>
+      <div class="sk rv"><h3>Calligraphy</h3><ul>
+        <li>Thuluth script</li><li>Hand-drawn logotypes</li><li>Calligraphic branding</li></ul></div>
+      <div class="sk rv"><h3>Research and leading</h3><ul>
+        <li>Augmented reality in learning</li><li>Team leadership</li>
+        <li>Workshop facilitation</li><li>Arabic and English</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head rv"><h2>Selected work</h2><div class="rule"></div></div>
+    <div class="work">
+
+      <a class="proj rv" href="https://www.behance.net/gallery/251818931/_" target="_blank" rel="noopener">
+        <h3>Ethrai</h3><div class="kind">Identity · Motion · Video</div>
+        <p>End-to-end design partner: a hand-drawn Arabic calligraphy logo, full corporate identity, 400+ digital assets, animated branding, and 50+ edited webinars.</p>
+        <span class="view">View project</span>
+      </a>
+
+      <a class="proj rv" href="https://www.behance.net/gallery/255090381/EXPO-2026-PSU" target="_blank" rel="noopener">
+        <h3>PSU Expo 2026</h3><div class="kind">Event identity · Print</div>
+        <p>Lead designer for Prince Sultan University's flagship expo: full event identity, a 46+ booth system, projects booklet, VIP and student invitations, and branded templates.</p>
+        <span class="view">View project</span>
+      </a>
+
+      <a class="proj rv" href="https://www.behance.net/gallery/251819417/Theravex-Brand-Identity-Packaging-System" target="_blank" rel="noopener">
+        <h3>Theravex</h3><div class="kind">Identity · Packaging</div>
+        <p>A healthcare brand across four products — Nasal, Oral, Oral Plus, and Tissue Care — held together by a shared grid with colour-coded variants.</p>
+        <span class="view">View project</span>
+      </a>
+
+      <a class="proj rv" href="https://www.behance.net/gallery/251820777/Kafu-Dent-Logo-Visual-Identity" target="_blank" rel="noopener">
+        <h3>Kafu Dent</h3><div class="kind">Identity</div>
+        <p>Logo and full corporate identity for a dental-care brand — precise, clean, and built to read as trustworthy across clinic and digital.</p>
+        <span class="view">View project</span>
+      </a>
+
+      <a class="proj rv" href="https://www.behance.net/gallery/251820425/Kafu-Energy-Logo-Visual-Identity" target="_blank" rel="noopener">
+        <h3>Kafu Energy</h3><div class="kind">Identity</div>
+        <p>Logo and full corporate identity for the energy sector, sharing a parent brand with Kafu Dent while holding its own character.</p>
+        <span class="view">View project</span>
+      </a>
+
+      <article class="proj rv is-static">
+        <h3>Safwa Bank</h3><div class="kind">Calligraphy · Branding</div>
+        <p>Arabic calligraphy drawn and applied across branch environments in Jordan.</p>
+      </article>
+
+      <article class="proj rv is-static">
+        <h3>Rozina Parfums</h3><div class="kind">Identity · Social</div>
+        <p>Logo and complete identity for a niche luxury fragrance brand, extended into social content in image and video.</p>
+      </article>
+
+    </div>
+    <p class="work-more rv"><a href="https://www.behance.net/Digital__Design" target="_blank" rel="noopener">See the full portfolio on Behance</a></p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="head rv"><h2>Let's talk</h2><div class="rule"></div></div>
+    <div class="contact-grid">
+      <div class="rv">
+        <p>Open to roles and commissions in design, e-learning, and Arabic calligraphy. Tell me what you're building.</p>
+        <ul class="clist">
+          <li><a href="mailto:omari.wael@gmail.com">omari.wael@gmail.com</a></li>
+          <li><a href="tel:+966541287879">+966 54 128 7879</a></li>
+          <li><a href="https://www.behance.net/Digital__Design" target="_blank" rel="noopener">behance.net/Digital__Design</a></li>
+          <li>Riyadh, Saudi Arabia</li>
+        </ul>
+      </div>
+      <form id="cf" class="rv" novalidate>
+        <div><label for="name">Your name</label>
+          <input type="text" id="name" placeholder="Full name" required></div>
+        <div><label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@company.com" required></div>
+        <div><label for="subject">Subject</label>
+          <input type="text" id="subject" placeholder="What is this about?"></div>
+        <div><label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me about the role or project." required></textarea></div>
+        <button type="submit" class="btn">Send message</button>
+        <p class="status" id="st" role="status" aria-live="polite"></p>
+        <p class="form-note">Sending opens your email app with the message ready. To collect submissions directly, connect the form to a service such as Formspree.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>© <span id="yr">2026</span> Wa'el Mohammed Al-Omari</div>
+    <div>Designed and built in Riyadh</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* in-page navigation — handled in JS so it works inside sandboxed frames too */
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    var id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    var soft = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    target.scrollIntoView({ behavior: soft, block: 'start' });
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
+});
+
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reduce && 'IntersectionObserver' in window) {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach(function (el, i) {
+    el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+    io.observe(el);
+  });
+} else {
+  document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+}
+
+document.getElementById('cf').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var st = document.getElementById('st');
+  var n = document.getElementById('name').value.trim();
+  var em = document.getElementById('email').value.trim();
+  var sb = document.getElementById('subject').value.trim();
+  var ms = document.getElementById('message').value.trim();
+  if (!n || !em || !ms) { st.textContent = 'Add your name, email, and a message before sending.'; return; }
+  window.location.href = 'mailto:omari.wael@gmail.com?subject='
+    + encodeURIComponent(sb || ('Message from ' + n))
+    + '&body=' + encodeURIComponent(ms + '\n\n\u2014\n' + n + '\n' + em);
+  st.textContent = 'Opening your email app with the message ready to send.';
+});
+</script>
+
+</body>
+</html>
