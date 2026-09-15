@@ -17,6 +17,7 @@
   --line:rgba(217,182,95,.20);
   --line-soft:rgba(200,220,225,.11);
   --teal:#13808F;
+  --cyan:#1FB6CE;
   --gold:#D9B65F;
   --gold-lt:#F0D9A0;
   --paper:#F5F1E8;
@@ -68,38 +69,54 @@ section{padding:clamp(4rem,10vw,8rem) 0;position:relative;scroll-margin-top:78px
   transition:width .32s cubic-bezier(.22,.61,.36,1);}
 .nav a:hover::after,.nav a:focus-visible::after{width:100%;}
 
-.hero{padding:clamp(3.5rem,9vw,7.5rem) 0 clamp(3rem,6vw,5rem);overflow:hidden;}
-.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(70% 55% at 76% 34%,rgba(19,128,143,.30),transparent 68%),
-             radial-gradient(48% 44% at 12% 88%,rgba(217,182,95,.10),transparent 70%);}
-.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2.25rem,5vw,4.5rem);align-items:center;}
-.hero h1{
-  font-size:clamp(2.6rem,1.4rem + 5.6vw,5.4rem);line-height:.98;margin-bottom:1.4rem;
-  background:linear-gradient(104deg,var(--paper) 12%,var(--gold-lt) 52%,var(--gold) 88%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero .role{font-size:clamp(1.02rem,.95rem + .35vw,1.22rem);color:var(--gold);font-weight:500;
-  margin-bottom:1.35rem;max-width:30ch;line-height:1.5;}
-.hero .lede{color:var(--body);max-width:42ch;font-weight:300;font-size:1.06rem;}
-.cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2.4rem;}
+.hero{position:relative;min-height:clamp(480px,84vh,780px);display:grid;align-items:center;overflow:hidden;
+  background:radial-gradient(150% 130% at 66% 24%,#0C2B36 0%,#081820 44%,#050C11 100%);}
+.hero::before{content:"";position:absolute;inset:-14%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(40% 48% at 22% 30%,rgba(31,182,206,.30),transparent 60%),
+    radial-gradient(44% 50% at 80% 70%,rgba(19,128,143,.26),transparent 62%),
+    radial-gradient(36% 44% at 58% 18%,rgba(26,90,160,.24),transparent 60%);
+  background-size:200% 200%;filter:blur(8px);
+  animation:mesh 17s ease-in-out infinite alternate;}
+.hero::after{content:"";position:absolute;inset:-14%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(38% 44% at 72% 26%,rgba(60,210,235,.20),transparent 60%),
+    radial-gradient(42% 48% at 26% 76%,rgba(26,120,190,.20),transparent 62%);
+  background-size:220% 220%;filter:blur(10px);mix-blend-mode:screen;
+  animation:mesh2 23s ease-in-out infinite alternate;}
+@keyframes mesh{0%{background-position:0% 0%;}100%{background-position:100% 100%;}}
+@keyframes mesh2{0%{background-position:100% 0%;}100%{background-position:0% 100%;}}
+.ribbon{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.ribbon svg{position:absolute;top:-15%;right:-18%;width:135%;height:135%;
+  transform-origin:70% 40%;animation:drift 22s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translate(0,0) rotate(0deg) scale(1);}
+  to{transform:translate(-4.5%,3.2%) rotate(-5deg) scale(1.08);}}
+.hero-in{position:relative;z-index:2;padding-block:clamp(3rem,8vw,5rem);}
+.eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:1.4rem;}
+.hero-name{font-family:var(--calli);direction:rtl;color:#EEFAFD;
+  font-size:clamp(1.9rem,1.3rem + 2.5vw,3.3rem);line-height:1.35;margin-bottom:.25rem;
+  text-shadow:0 0 40px rgba(31,182,206,.45);animation:rise 1.2s cubic-bezier(.22,.61,.36,1) both;}
+.hero h1{font-weight:500;letter-spacing:-.022em;line-height:1.02;margin-bottom:1.25rem;
+  font-size:clamp(2.3rem,1.3rem + 3.8vw,4.4rem);
+  background:linear-gradient(100deg,#EAFBFF 6%,#63D6EA 44%,#EAFBFF 82%);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 26px rgba(31,182,206,.38));
+  animation:shimmer 6.5s ease-in-out infinite;}
+@keyframes shimmer{0%,100%{background-position:0% center;}50%{background-position:100% center;}}
+.hero .lede{color:#AFC6CE;max-width:44ch;font-weight:300;font-size:1.06rem;}
+@keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+.cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2.3rem;}
 .btn{display:inline-block;padding:.85rem 1.8rem;font-size:.94rem;font-weight:600;font-family:var(--sans);
   border:1px solid var(--gold);background:var(--gold);color:var(--ink);border-radius:999px;cursor:pointer;
   transition:transform .22s ease,box-shadow .22s ease,background .22s ease;}
 .btn:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 10px 28px rgba(217,182,95,.22);}
 .btn.ghost{background:transparent;color:var(--gold);}
 .btn.ghost:hover{background:rgba(217,182,95,.1);box-shadow:none;}
-
-.calli-stage{position:relative;display:grid;place-items:center;padding:clamp(2rem,5vw,3.5rem) 1rem;
-  border:1px solid var(--line);border-radius:24px;
-  background:linear-gradient(165deg,rgba(19,128,143,.16),rgba(10,20,24,0) 62%);}
-.calli-stage::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(217,182,95,.26),transparent 66%);filter:blur(34px);}
-.calli{font-family:var(--calli);font-size:clamp(2.4rem,1.2rem + 6vw,4.6rem);line-height:1.5;direction:rtl;
-  position:relative;color:var(--gold-lt);text-shadow:0 0 42px rgba(217,182,95,.32);text-align:center;
-  white-space:nowrap;animation:rise 1.15s cubic-bezier(.22,.61,.36,1) both;}
-@keyframes rise{from{opacity:0;transform:translateY(20px) scale(.97);}to{opacity:1;transform:none;}}
-.calli-cap{position:relative;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);
-  font-size:.82rem;color:var(--muted);text-align:center;max-width:30ch;line-height:1.6;}
+.hero .btn{border-color:var(--cyan);background:var(--cyan);color:#04222A;}
+.hero .btn:hover{background:#5FE0F0;box-shadow:0 10px 28px rgba(31,182,206,.32);}
+.hero .btn.ghost{background:transparent;color:#CFEEF4;border-color:rgba(207,238,244,.4);}
+.hero .btn.ghost:hover{background:rgba(207,238,244,.1);box-shadow:none;}
 
 .ticker{border-block:1px solid var(--line-soft);padding:1.05rem 0;overflow:hidden;
   background:var(--ink-2);position:relative;z-index:2;}
@@ -187,9 +204,83 @@ footer{padding:2rem 0;border-top:1px solid var(--line-soft);font-size:.86rem;col
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1);}
 .rv.in{opacity:1;transform:none;}
 
+/* image work cards */
+.proj{padding:0;}
+.shot{position:relative;aspect-ratio:4/3;overflow:hidden;background:#F4F1EA;}
+.shot img{width:100%;height:100%;object-fit:contain;padding:7%;transition:transform .55s ease;}
+.shot.photo{background:var(--ink-2);}
+.shot.photo img{object-fit:cover;padding:0;}
+a.proj:hover .shot img{transform:scale(1.05);}
+.proj-body{padding:1.35rem 1.55rem 1.6rem;display:flex;flex-direction:column;flex:1;}
+.kind{display:inline-flex;align-items:center;gap:.45rem;color:var(--teal);font-size:.78rem;
+  font-weight:600;margin-bottom:.55rem;}
+.kind svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6;flex:none;}
+
+/* galleries */
+.gallery-wide{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem;}
+.gallery-sq{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;}
+.tile{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line-soft);background:var(--ink-2);}
+.gallery-wide .tile{aspect-ratio:16/9;}
+.gallery-sq .tile{aspect-ratio:1;}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.tile:hover img{transform:scale(1.06);}
+a.tile,a.cal-item{cursor:pointer;display:block;}
+
+/* lightbox */
+.lb-trigger{cursor:zoom-in;display:block;position:relative;}
+.lb-trigger::after{content:"\2922";position:absolute;top:.6rem;right:.7rem;z-index:3;
+  width:1.9rem;height:1.9rem;display:grid;place-items:center;border-radius:50%;
+  background:rgba(8,16,20,.62);color:#fff;font-size:1rem;opacity:0;
+  transition:opacity .25s ease;backdrop-filter:blur(4px);}
+.lb-trigger:hover::after,.lb-trigger:focus-visible::after{opacity:1;}
+.lightbox{position:fixed;inset:0;z-index:200;display:none;place-items:center;padding:clamp(1rem,4vw,3rem);
+  background:rgba(5,10,14,.92);backdrop-filter:blur(6px);}
+.lightbox.open{display:grid;animation:lbfade .25s ease both;}
+@keyframes lbfade{from{opacity:0;}to{opacity:1;}}
+.lightbox img{max-width:100%;max-height:100%;border-radius:10px;
+  box-shadow:0 24px 70px rgba(0,0,0,.6);animation:lbpop .28s cubic-bezier(.22,.61,.36,1) both;}
+@keyframes lbpop{from{opacity:0;transform:scale(.96);}to{opacity:1;transform:none;}}
+.lb-close{position:fixed;top:clamp(1rem,3vw,1.6rem);right:clamp(1rem,3vw,1.6rem);z-index:210;
+  display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.15rem;font-family:var(--sans);
+  font-size:.9rem;font-weight:600;color:var(--ink);background:var(--gold);border:none;border-radius:999px;
+  cursor:pointer;transition:background .2s ease,transform .2s ease;}
+.lb-close:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.lb-close svg{width:16px;height:16px;stroke:var(--ink);stroke-width:2.2;fill:none;}
+.sub-note{margin:1.5rem 0 0;font-size:.9rem;color:var(--muted);}
+
+/* calligraphy special */
+.calligraphy{background:
+  radial-gradient(80% 60% at 84% 12%,rgba(217,182,95,.14),transparent 60%),
+  radial-gradient(70% 60% at 8% 92%,rgba(217,182,95,.08),transparent 65%),
+  linear-gradient(180deg,#0B141A,#0F1912);
+  border-block:1px solid var(--line);position:relative;overflow:hidden;}
+.calligraphy::before{content:"وائل";position:absolute;font-family:var(--calli);
+  font-size:min(48vw,680px);color:rgba(217,182,95,.05);top:50%;left:50%;
+  transform:translate(-50%,-50%);direction:rtl;z-index:0;pointer-events:none;line-height:1;}
+.cal-head{text-align:center;margin-bottom:2.75rem;position:relative;z-index:2;}
+.cal-orn{display:flex;align-items:center;justify-content:center;gap:1rem;color:var(--gold);margin-bottom:1rem;}
+.cal-orn::before,.cal-orn::after{content:"";height:1px;width:min(22vw,160px);
+  background:linear-gradient(90deg,transparent,var(--gold));}
+.cal-orn::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.cal-orn span{font-family:var(--calli);font-size:1.8rem;direction:rtl;line-height:1;}
+.cal-head h2{font-size:clamp(2rem,1.4rem + 2.4vw,3.2rem);color:var(--gold-lt);}
+.cal-head p{color:var(--body);font-weight:300;max-width:54ch;margin:.8rem auto 0;}
+.cal-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:relative;z-index:2;}
+.cal-item{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(0,0,0,.32);background:#0B0F0C;}
+.cal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease;}
+.cal-item:hover img{transform:scale(1.05);}
+.cal-item.wide{grid-column:1 / -1;aspect-ratio:21/9;}
+.cal-item.half{aspect-ratio:4/3;}
+
 @media (max-width:900px){
-  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
-  .calli-stage{order:-1;}
+  .hero-in{padding-block:clamp(2.5rem,8vw,4rem);}
+  .about-grid,.contact-grid{grid-template-columns:1fr;}
+}
+@media (max-width:620px){
+  .cal-grid{grid-template-columns:1fr;}
+  .cal-item.wide{aspect-ratio:16/9;}
+  .cal-item.half{aspect-ratio:16/10;}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important;}
@@ -208,25 +299,39 @@ footer{padding:2rem 0;border-top:1px solid var(--line-soft);font-size:.86rem;col
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#calligraphy">Calligraphy</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Wa'el Al-Omari</h1>
-      <p class="role">Graphic and digital designer, e-learning designer, and Arabic calligrapher in Riyadh.</p>
-      <p class="lede">Twenty years of shaping brands, pages, and learning — built on a foundation most designers don't have: the hand-drawn Arabic letter.</p>
-      <div class="cta">
-        <a class="btn" href="#work">See selected work</a>
-        <a class="btn ghost" href="#contact">Start a conversation</a>
-      </div>
-    </div>
-    <div class="calli-stage">
-      <span class="calli">وائل العمري</span>
-      <p class="calli-cap">First place, Arabic Calligraphy Award, Arab Capital of Culture.</p>
+  <div class="ribbon" aria-hidden="true">
+    <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#0a2a33" stop-opacity="0"/>
+          <stop offset="0.42" stop-color="#1AA6BF"/>
+          <stop offset="0.52" stop-color="#DFF6FB"/>
+          <stop offset="0.62" stop-color="#1AA6BF"/>
+          <stop offset="1" stop-color="#0a2a33" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="sb" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="30"/></filter>
+        <filter id="sb2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
+      </defs>
+      <path d="M1260,-60 C 980,240 780,520 120,900" fill="none" stroke="url(#rg)" stroke-width="160" filter="url(#sb)" opacity="0.7"/>
+      <path d="M1260,-60 C 980,240 780,520 120,900" fill="none" stroke="#EAFFFF" stroke-width="6" filter="url(#sb2)" opacity="0.85"/>
+      <path d="M-100,780 C 280,710 640,770 1200,920" fill="none" stroke="url(#rg)" stroke-width="90" filter="url(#sb)" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="wrap hero-in">
+    <p class="eyebrow">Graphic Designer · Calligrapher · Multimedia Specialist</p>
+    <div class="hero-name">وائل العمري</div>
+    <h1>Wa'el Mohammed Al-Omari</h1>
+    <p class="lede">Twenty years of shaping brands, pages, and learning — built on a foundation most designers don't have: the hand-drawn Arabic letter.</p>
+    <div class="cta">
+      <a class="btn" href="#work">See selected work</a>
+      <a class="btn ghost" href="#contact">Start a conversation</a>
     </div>
   </div>
 </header>
@@ -363,47 +468,109 @@ footer{padding:2rem 0;border-top:1px solid var(--line-soft);font-size:.86rem;col
     <div class="work">
 
       <a class="proj rv" href="https://www.behance.net/gallery/251818931/_" target="_blank" rel="noopener">
-        <h3>Ethrai</h3><div class="kind">Identity · Motion · Video</div>
-        <p>End-to-end design partner: a hand-drawn Arabic calligraphy logo, full corporate identity, 400+ digital assets, animated branding, and 50+ edited webinars.</p>
-        <span class="view">View project</span>
+        <div class="shot"><img src="assets/ethrai.png" alt="Ethrai brand identity" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="kind"><svg viewBox="0 0 24 24"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7"/></svg>Identity · Motion · Video</div>
+          <h3>Ethrai</h3>
+          <p>End-to-end design partner: a hand-drawn Arabic calligraphy logo, full corporate identity, 400+ digital assets, animated branding, and 50+ edited webinars.</p>
+          <span class="view">View project</span>
+        </div>
       </a>
 
       <a class="proj rv" href="https://www.behance.net/gallery/255090381/EXPO-2026-PSU" target="_blank" rel="noopener">
-        <h3>PSU Expo 2026</h3><div class="kind">Event identity · Print</div>
-        <p>Lead designer for Prince Sultan University's flagship expo: full event identity, a 46+ booth system, projects booklet, VIP and student invitations, and branded templates.</p>
-        <span class="view">View project</span>
+        <div class="shot"><img src="assets/psu-expo.png" alt="PSU Expo 2026 event identity" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="kind"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Event identity · Print</div>
+          <h3>PSU Expo 2026</h3>
+          <p>Lead designer for Prince Sultan University's flagship expo: full event identity, a 46+ booth system, projects booklet, VIP and student invitations, and branded templates.</p>
+          <span class="view">View project</span>
+        </div>
       </a>
 
       <a class="proj rv" href="https://www.behance.net/gallery/251819417/Theravex-Brand-Identity-Packaging-System" target="_blank" rel="noopener">
-        <h3>Theravex</h3><div class="kind">Identity · Packaging</div>
-        <p>A healthcare brand across four products — Nasal, Oral, Oral Plus, and Tissue Care — held together by a shared grid with colour-coded variants.</p>
-        <span class="view">View project</span>
+        <div class="shot"><img src="assets/theravex.png" alt="Theravex brand identity" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="kind"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>Identity · Packaging</div>
+          <h3>Theravex</h3>
+          <p>A healthcare brand across four products — Nasal, Oral, Oral Plus, and Tissue Care — held together by a shared grid with colour-coded variants.</p>
+          <span class="view">View project</span>
+        </div>
       </a>
 
       <a class="proj rv" href="https://www.behance.net/gallery/251820777/Kafu-Dent-Logo-Visual-Identity" target="_blank" rel="noopener">
-        <h3>Kafu Dent</h3><div class="kind">Identity</div>
-        <p>Logo and full corporate identity for a dental-care brand — precise, clean, and built to read as trustworthy across clinic and digital.</p>
-        <span class="view">View project</span>
+        <div class="shot"><img src="assets/kafu-dent.png" alt="Kafu Dent logo and identity" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="kind"><svg viewBox="0 0 24 24"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7"/></svg>Identity</div>
+          <h3>Kafu Dent</h3>
+          <p>Logo and full corporate identity for a dental-care brand — precise, clean, and built to read as trustworthy across clinic and digital.</p>
+          <span class="view">View project</span>
+        </div>
       </a>
 
       <a class="proj rv" href="https://www.behance.net/gallery/251820425/Kafu-Energy-Logo-Visual-Identity" target="_blank" rel="noopener">
-        <h3>Kafu Energy</h3><div class="kind">Identity</div>
-        <p>Logo and full corporate identity for the energy sector, sharing a parent brand with Kafu Dent while holding its own character.</p>
-        <span class="view">View project</span>
+        <div class="shot"><img src="assets/kafu-energy.png" alt="Kafu Energy logo and identity" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="kind"><svg viewBox="0 0 24 24"><polygon points="12 2 20 7 20 17 12 22 4 17 4 7"/></svg>Identity</div>
+          <h3>Kafu Energy</h3>
+          <p>Logo and full corporate identity for the energy sector, sharing a parent brand with Kafu Dent while holding its own character.</p>
+          <span class="view">View project</span>
+        </div>
       </a>
 
-      <article class="proj rv is-static">
-        <h3>Safwa Bank</h3><div class="kind">Calligraphy · Branding</div>
-        <p>Arabic calligraphy drawn and applied across branch environments in Jordan.</p>
-      </article>
-
-      <article class="proj rv is-static">
-        <h3>Rozina Parfums</h3><div class="kind">Identity · Social</div>
-        <p>Logo and complete identity for a niche luxury fragrance brand, extended into social content in image and video.</p>
-      </article>
+      <a class="proj rv" href="https://www.behance.net/gallery/251821119/Samples-of-Calligraphy-Works" target="_blank" rel="noopener">
+        <div class="shot photo"><img src="assets/calligraphy-3.jpg" alt="Safwa Bank calligraphy branding" loading="lazy"></div>
+        <div class="proj-body">
+          <div class="kind"><svg viewBox="0 0 24 24"><path d="M12 2l3 7-3 13-3-13z"/><path d="M9 9h6"/></svg>Calligraphy · Branding</div>
+          <h3>Safwa Bank</h3>
+          <p>Arabic calligraphy drawn and applied across branch environments in Jordan.</p>
+          <span class="view">View project</span>
+        </div>
+      </a>
 
     </div>
     <p class="work-more rv"><a href="https://www.behance.net/Digital__Design" target="_blank" rel="noopener">See the full portfolio on Behance</a></p>
+  </div>
+</section>
+
+<section id="social">
+  <div class="wrap">
+    <div class="head rv"><h2>Social &amp; digital</h2><div class="rule"></div></div>
+    <div class="gallery-wide">
+      <a class="tile lb-trigger rv" href="assets/Social1.jpg"><img src="assets/Social1.jpg" alt="Social media design 1" loading="lazy"></a>
+      <a class="tile lb-trigger rv" href="assets/Social2.jpg"><img src="assets/Social2.jpg" alt="Social media design 2" loading="lazy"></a>
+      <a class="tile lb-trigger rv" href="assets/Social3.jpg"><img src="assets/Social3.jpg" alt="Social media design 3" loading="lazy"></a>
+      <a class="tile lb-trigger rv" href="assets/Social4.jpg"><img src="assets/Social4.jpg" alt="Social media design 4" loading="lazy"></a>
+    </div>
+    <p class="sub-note rv">A selection from 400+ infographics and campaign posts designed for Ethrai and other brands.</p>
+  </div>
+</section>
+
+<section id="rozina">
+  <div class="wrap">
+    <div class="head rv"><h2>Rozina Parfums</h2><div class="rule"></div></div>
+    <div class="gallery-sq">
+      <a class="tile lb-trigger rv" href="assets/rozina-1.jpg"><img src="assets/rozina-1.jpg" alt="Rozina Parfums visual 1" loading="lazy"></a>
+      <a class="tile lb-trigger rv" href="assets/rozina-2.jpg"><img src="assets/rozina-2.jpg" alt="Rozina Parfums visual 2" loading="lazy"></a>
+      <a class="tile lb-trigger rv" href="assets/rozina-3.jpg"><img src="assets/rozina-3.jpg" alt="Rozina Parfums visual 3" loading="lazy"></a>
+      <a class="tile lb-trigger rv" href="assets/rozina-4.jpg"><img src="assets/rozina-4.jpg" alt="Rozina Parfums visual 4" loading="lazy"></a>
+    </div>
+    <p class="sub-note rv">Logo, identity, and product visuals for a niche luxury fragrance brand.</p>
+  </div>
+</section>
+
+<section id="calligraphy" class="calligraphy">
+  <div class="wrap">
+    <div class="cal-head rv">
+      <div class="cal-orn"><span>وائل</span></div>
+      <h2>The Art of the Letter</h2>
+      <p>Where my work begins. Award-winning Arabic calligraphy in the Thuluth tradition — the discipline behind every logotype and page.</p>
+    </div>
+    <div class="cal-grid">
+      <a class="cal-item wide lb-trigger rv" href="assets/calligraphy-1.jpg"><img src="assets/calligraphy-1.jpg" alt="Arabic calligraphy work 1" loading="lazy"></a>
+      <a class="cal-item half lb-trigger rv" href="assets/calligraphy-3.jpg"><img src="assets/calligraphy-3.jpg" alt="Arabic calligraphy work 3" loading="lazy"></a>
+      <a class="cal-item half lb-trigger rv" href="assets/calligraphy-4.jpg"><img src="assets/calligraphy-4.jpg" alt="Arabic calligraphy work 4" loading="lazy"></a>
+      <a class="cal-item wide lb-trigger rv" href="assets/calligraphy-2.jpg"><img src="assets/calligraphy-2.jpg" alt="Arabic calligraphy work 2" loading="lazy"></a>
+    </div>
   </div>
 </section>
 
@@ -446,8 +613,48 @@ footer{padding:2rem 0;border-top:1px solid var(--line-soft);font-size:.86rem;col
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close image viewer">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Close
+  </button>
+  <img id="lbImg" src="" alt="">
+</div>
+
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* lightbox: click a gallery/calligraphy image to view it enlarged in-page */
+(function () {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbClose = document.getElementById('lbClose');
+  var lastFocus = null;
+  function open(src, alt) {
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lastFocus = document.activeElement;
+    lbClose.focus();
+  }
+  function close() {
+    lb.classList.remove('open');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll('.lb-trigger').forEach(function (t) {
+    t.addEventListener('click', function (e) {
+      e.preventDefault();
+      var img = t.querySelector('img');
+      open(t.getAttribute('href') || (img && img.src), img ? img.alt : '');
+    });
+  });
+  lbClose.addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lb.classList.contains('open')) close();
+  });
+})();
 
 /* in-page navigation — handled in JS so it works inside sandboxed frames too */
 document.querySelectorAll('a[href^="#"]').forEach(function (link) {
