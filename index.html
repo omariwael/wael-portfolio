@@ -71,38 +71,18 @@ section{padding:clamp(4rem,10vw,8rem) 0;position:relative;scroll-margin-top:78px
 
 .hero{position:relative;min-height:clamp(480px,84vh,780px);display:grid;align-items:center;overflow:hidden;
   background:radial-gradient(150% 130% at 66% 24%,#0A2028 0%,#06121A 46%,#04090E 100%);}
-.hero::before{content:"";position:absolute;inset:-16%;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(40% 48% at 22% 30%,rgba(24,150,172,.20),transparent 60%),
-    radial-gradient(44% 50% at 80% 70%,rgba(16,110,124,.18),transparent 62%),
-    radial-gradient(36% 44% at 58% 18%,rgba(20,70,130,.18),transparent 60%);
-  background-size:240% 240%;filter:blur(8px);
-  will-change:background-position;transform:translateZ(0);backface-visibility:hidden;
-  animation:mesh 14s ease-in-out infinite;}
-.hero::after{content:"";position:absolute;inset:-16%;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(38% 44% at 72% 26%,rgba(40,170,195,.16),transparent 60%),
-    radial-gradient(42% 48% at 26% 76%,rgba(22,100,160,.16),transparent 62%);
-  background-size:260% 260%;filter:blur(10px);mix-blend-mode:screen;
-  will-change:background-position;transform:translateZ(0);backface-visibility:hidden;
-  animation:mesh2 18s ease-in-out infinite;}
-@keyframes mesh{
-  0%{background-position:0% 0%;}
-  25%{background-position:72% 28%;}
-  50%{background-position:100% 72%;}
-  75%{background-position:28% 100%;}
-  100%{background-position:0% 0%;}}
-@keyframes mesh2{
-  0%{background-position:100% 100%;}
-  25%{background-position:32% 62%;}
-  50%{background-position:0% 22%;}
-  75%{background-position:70% 4%;}
-  100%{background-position:100% 100%;}}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(120deg,
+    rgba(24,150,172,.20) 0%,
+    rgba(16,110,124,.10) 28%,
+    rgba(20,70,130,.16) 52%,
+    rgba(24,150,172,.16) 78%,
+    rgba(16,110,124,.10) 100%);
+  background-size:300% 300%;
+  animation:mesh 20s ease-in-out infinite;}
+@keyframes mesh{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 .ribbon{position:absolute;inset:0;z-index:1;pointer-events:none;}
-.ribbon svg{position:absolute;top:-15%;right:-18%;width:135%;height:135%;
-  transform-origin:70% 40%;animation:drift 18s ease-in-out infinite alternate;}
-@keyframes drift{from{transform:translate(0,0) rotate(0deg) scale(1);}
-  to{transform:translate(-5%,3.6%) rotate(-5.5deg) scale(1.09);}}
+.ribbon svg{position:absolute;top:-15%;right:-18%;width:135%;height:135%;}
 .scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(104deg,rgba(4,9,14,.9) 0%,rgba(4,9,14,.6) 30%,rgba(4,9,14,.2) 52%,transparent 66%);}
 .hero-in{position:relative;z-index:2;padding-block:clamp(3rem,8vw,5rem);}
@@ -115,9 +95,7 @@ section{padding:clamp(4rem,10vw,8rem) 0;position:relative;scroll-margin-top:78px
   font-size:clamp(2.3rem,1.3rem + 3.8vw,4.4rem);
   background:linear-gradient(100deg,#CFEEF5 6%,#4FC4DA 46%,#CFEEF5 84%);
   background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 2px 16px rgba(4,12,20,.7));
-  animation:shimmer 6.5s ease-in-out infinite;}
-@keyframes shimmer{0%,100%{background-position:0% center;}50%{background-position:100% center;}}
+  filter:drop-shadow(0 2px 16px rgba(4,12,20,.7));}
 .hero .lede{color:#CBDAE0;max-width:44ch;font-weight:300;font-size:1.06rem;}
 @keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
 .cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2.3rem;}
